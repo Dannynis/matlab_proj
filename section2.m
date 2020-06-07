@@ -48,7 +48,7 @@ xlabel('\omega [rad]');
 ylabel('Magnitude H6');
 
 %%
-N = 20000;
+N = 10000;
 w = linspace(-pi,pi,2*N+1)
 
 n = (-N:N)
@@ -57,5 +57,45 @@ fft_x = abs(fftshift(fft(x)))
 figure
 plot(w,fft_x)
 title('Absolute Frequency Response')
+ylabel('Magnitude');
+xlabel('\omega [rad]');
+%%
+w = linspace(-pi,pi,2*N+80)
+
+y2_comp = conv(h2,x);
+fft_y2 = abs(fftshift(fft(y2_comp)))
+figure
+plot(w,fft_y2)
+title('Absolute Frequency Response y2 matlab colculated')
+ylabel('Magnitude');
+xlabel('\omega [rad]');
+
+y3_comp = conv(h3,x);
+fft_y3 = abs(fftshift(fft(y3_comp)))
+figure
+plot(w,fft_y3)
+title('Absolute Frequency Response y3 matlab colculated')
+ylabel('Magnitude');
+xlabel('\omega [rad]');
+
+y4_comp = conv(h4,x);
+fft_y4 = abs(fftshift(fft(y4_comp)))
+figure
+plot(w,fft_y4)
+title('Absolute Frequency Response y4 matlab colculated')
+ylabel('Magnitude');
+xlabel('\omega [rad]');
+
+y6_comp = conv(h6,x);
+fft_y6 = abs(fftshift(fft(y6_comp)))
+figure
+plot(w,fft_y6)
+title('Absolute Frequency Response y6 matlab colculated')
+ylabel('Magnitude');
+xlabel('\omega [rad]');
+%%
+
+plot(n,y2_comp)
+title('Absolute Frequency Response y2[n] matlab colculated')
 ylabel('Magnitude');
 xlabel('\omega [rad]');
