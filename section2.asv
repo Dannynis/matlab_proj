@@ -1,0 +1,82 @@
+
+clear all; close all;
+load('LPF.mat');
+
+figure
+suptitle('Absolute Frequency Response')
+
+
+h2_l = length(h2)
+
+w = linspace(-pi,pi,h2_l)
+
+fft_h2 =  abs(fftshift(fft(h2)))
+
+plot(w,fft_h2)
+title('H2');
+xlabel('[f]')
+ylabel('Amplitude')
+
+
+
+clear all; close all;
+load('LPF.mat');
+
+h3_l = length(h3)
+
+w = linspace(-pi,pi,h3_l)
+
+fft_h3 =  abs(fftshift(fft(h3)))
+
+plot(w,fft_h3)
+title('H2');
+xlabel('[f]')
+ylabel('Amplitude')
+hold on;
+
+
+clear all; close all;
+load('LPF.mat');
+
+h4_l = length(h4)
+
+w = linspace(-pi,pi,h4_l)
+
+fft_h4 =  abs(fftshift(fft(h4)))
+
+plot(w,fft_h4)
+title('H2');
+xlabel('[f]')
+ylabel('Amplitude')
+hold on;
+
+
+clear all; close all;
+load('LPF.mat');
+
+h6_l = length(h6)
+
+w = linspace(-pi,pi,h6_l)
+
+fft_h6 =  abs(fftshift(fft(h6)))
+hold on;
+plot(w,fft_h6)
+title('H6');
+xlabel('[f]')
+ylabel('Amplitude')
+hold off;
+
+function plot(x)
+
+figure(1);
+subplot(3,1,1);
+plot(n,x,'*k');
+ni = [0:.1:N-1];     % Interpolated time axis
+hold on;
+plot(ni,A*cos(2*pi*ni*f*T+phi),'-k'); grid off;
+title('Sinusoid at 1/4 the Sampling Rate');
+xlabel('Time (samples)');
+ylabel('Amplitude');
+text(-8,1,'a)');
+hold off;
+end

@@ -1,0 +1,20 @@
+clc;
+close all;
+clearvars;
+%%
+const_sig = ones(1,100)
+
+h = [];
+for n=0:100
+    h = [h; filt(n)]
+end
+
+output = conv(const_sig,h)
+
+plot((1:N),output);
+xlabel('[n]');ylabel('Amplitude');
+
+
+function res = filt(x)
+    res = 10 * 2 ^ x + 5 * 2^x 
+end
