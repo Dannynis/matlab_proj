@@ -60,20 +60,7 @@ title('Absolute Frequency Response')
 ylabel('Magnitude');
 xlabel('\omega [rad]');
 %%
-
-% 
-% y2 = cos(n * pi/5) + cos((n* 2*pi)/5)
-% fft_y2 = abs(fftshift(fft(y2)))
-% figure
-% plot(w,fft_y2)
-% title('Absolute Frequency Response y2 hand colculated')
-% ylabel('Magnitude');
-% xlabel('\omega [rad]');
-
-n = linspace(-N,N,80)
-n = 
-w = linspace(-pi,pi,159)
-x = cos((pi/5)*n) + cos(((2*pi)/5)*n);
+w = linspace(-pi,pi,2*N+80)
 
 y2_comp = conv(h2,x);
 fft_y2 = abs(fftshift(fft(y2_comp)))
@@ -86,7 +73,7 @@ xlabel('\omega [rad]');
 y3_comp = conv(h3,x);
 fft_y3 = abs(fftshift(fft(y3_comp)))
 figure
-plot(w,fft_y2)
+plot(w,fft_y3)
 title('Absolute Frequency Response y3 matlab colculated')
 ylabel('Magnitude');
 xlabel('\omega [rad]');
@@ -106,5 +93,43 @@ plot(w,fft_y6)
 title('Absolute Frequency Response y6 matlab colculated')
 ylabel('Magnitude');
 xlabel('\omega [rad]');
+%%
+
+plot(n,y2_comp(1:20001),'r')
+title('y2[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+plot(x,'b');
+legend('y2[n]','x[n]');
+axis([0 100 -1.5 2.5]);
 
 
+plot(n,y3_comp(1:20001),'r')
+title('y3[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+plot(x,'b');
+legend('y3[n]','x[n]');
+axis([0 100 -1.5 2.5]);
+
+
+plot(n,y4_comp(1:20001),'r')
+title('y4[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+plot(x,'b');
+legend('y2[n]','x[n]');
+axis([0 100 -1.5 2.5]);
+
+
+plot(n,y2_comp(1:20001),'r')
+title('y2[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+plot(x,'b');
+legend('y2[n]','x[n]');
+axis([0 100 -1.5 2.5]);

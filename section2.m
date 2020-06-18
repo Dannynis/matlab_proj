@@ -94,8 +94,46 @@ title('Absolute Frequency Response y6 matlab colculated')
 ylabel('Magnitude');
 xlabel('\omega [rad]');
 %%
-
-plot(n,y2_comp)
-title('Absolute Frequency Response y2[n] matlab colculated')
+figure
+stem(n,y2_comp(1:20001),'r')
+title('y2[n] and x[n] matlab colculated')
 ylabel('Magnitude');
-xlabel('\omega [rad]');
+xlabel('\time [n]');
+hold on;
+stem(x,'b');
+legend('y2[n]','x[n]');
+axis([0 100 -1.5 2.5]);
+
+hold off;
+
+figure
+stem(n,y3_comp(1:20001),'r')
+title('y3[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+stem(x,'b');
+legend('y3[n]','x[n]');
+axis([0 100 -1.5 2.5]);
+hold off;
+
+figure
+stem(n,y4_comp(1:20001),'r')
+title('y4[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+stem(x,'b');
+legend('y4[n]','x[n]');
+axis([0 100 -1.5 2.5]);
+hold off;
+
+figure
+stem(n,y6_comp(1:20001),'r')
+title('y6[n] and x[n] matlab colculated')
+ylabel('Magnitude');
+xlabel('\time [n]');
+hold on;
+stem(x,'b');
+legend('y6[n]','x[n]');
+axis([0 100 -1.5 2.5]);
